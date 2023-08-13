@@ -27,8 +27,7 @@ Route::get('/', function () {
     return view('pages.authentication.login');
 });
 
-// Route::get('register', [RegistrationController::class, 'index']);
-// Route::post('register', [RegistrationController::class, 'store'])->name('register');
+
 Route::get('login', [LoginController::class, 'index'])->name('login');
 Route::post('login/store', [LoginController::class, 'store']);
 Route::get('/logout', [LoginController::class, 'logout']);
@@ -37,6 +36,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::group(['middleware' => 'auth'], function () {
     Route::name('dashboard.')->prefix('dashboard')->group(function () {
         Route::get('home', [DashboardController::class, 'dashboard']);
+        Route::resource('vehicle', VehicleController::class);
+        Route::resource('usage', UsageController::class);
+        Route::resource('driver', DriverController::class);
         Route::get('/monitor/waiting', [MonitorController::class, 'index']);
         Route::get('/monitor/edit/{id}', [MonitorController::class, 'edit']);
         Route::put('/monitor/update/headOffice/{id}', [MonitorController::class, 'updateHeadOffice']);
