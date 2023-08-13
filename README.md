@@ -17,7 +17,7 @@
 5. login sebagai headMine untuk melakukan persetujuan
 6. reports laporan dapat diakses untuk seluruh role user
 
-##instalasi aplikasi
+## instalasi aplikasi
 1. Clone repositori ini ke direktori lokal Anda.
 2. Salin berkas .env.example menjadi .env dan atur konfigurasi database.
 3. Jalankan perintah composer install untuk menginstal dependensi.
